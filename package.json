@@ -3,6 +3,7 @@
 	"displayName": "Ember Component Extractor",
 	"description": "Creates an ember component from highlighted text",
 	"publisher": "proverbialninja",
+	"repository": "https://github.com/proverbial-ninja/ember-extract-component",
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.39.0"
