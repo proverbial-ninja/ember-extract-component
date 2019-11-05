@@ -51,7 +51,15 @@ function activate(context) {
 					fs.writeFile(filepath, text, () => {
 
 						vscode.window.showInformationMessage('Component has been created successfully');
-						editor.edit(builder => builder.replace(selection, `{{component "${value}" }}`))
+
+						value = value.replace(/-/g, ' ');
+
+						let output = value.replace(/(\w+)(?:\s+|$)/g, function (_, word) {
+							return word.charAt(0).toUpperCase() + word.substr(1);
+						});
+
+
+						editor.edit(builder => builder.replace(selection, `<${output}/>`))
 						vscode.workspace.openTextDocument(filepath).then(doc => {
 							return vscode.window.showTextDocument(doc);
 
